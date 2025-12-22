@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Era Uma Vez Diferente - Ebooks Infantis Inclusivos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Paleta de Cores baseada no Logo */
+            --primary-blue: #2B95C8;
+            --accent-yellow: #FDC60F;
+            --accent-pink: #E86A92;
+            --text-dark: #333333;
+            --white: #ffffff;
+            --bg-light: #f4f9fc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, button {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        /* Header / Hero Section */
+        header {
+            background: linear-gradient(180deg, #ffffff 0%, var(--bg-light) 100%);
+            text-align: center;
+            padding: 2rem 1rem;
+            border-bottom: 5px solid var(--accent-yellow);
+        }
+
+        .logo-container img {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+
+        .hero-text h1 {
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-pink);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 0 #c04e75;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #c04e75;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Seção de Livros (Grid) */
+        .books-section {
+            margin-top: 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-blue);
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-yellow);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Card do Livro */
+        .book-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid transparent;
+        }
+
+        .book-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-yellow);
+        }
+
+        .book-cover-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #ddd; /* Cor temporária */
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Simulação de capa (troque por <img> real depois) */
+        .book-cover-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .book-title {
+            color: var(--primary-blue);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .book-desc {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .price-tag {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-pink);
+            margin-bottom: 1rem;
+        }
+
+        /* Botões de Compra */
+        .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-amazon {
+            background-color: #FF9900;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .btn-direct {
+            background-color: #25D366; /* Cor WhatsApp */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            border: 1px solid #25D366;
+        }
+
+        .btn-direct:hover {
+            background-color: #1ebc57;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--primary-blue);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .hero-text h1 { font-size: 2rem; }
+            .book-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="Era_Uma_Vez.Logo1.jpg" alt="Logo Era Uma Vez Diferente">
+        </div>
+        <div class="hero-text">
+            <h1>Histórias Onde Toda Criança é Protagonista</h1>
+            <p>Ebooks infantis que celebram a inclusão, a diversidade e o amor. Conheça nossos títulos e encante-se.</p>
+            <a href="#livros" class="cta-button">Ver Coleção Completa</a>
+        </div>
+    </header>
+
+    <div class="container" id="livros">
+        
+        <h2 class="section-title">Nossa Estante Mágica</h2>
+        
+        <div class="book-grid">
+
+            <article class="book-card">
+                <div class="book-cover-placeholder">
+                    Capa do Livro 1
+                </div>
+                <h3 class="book-title">O Jardim Secreto dos Sentidos</h3>
+                <p class="book-desc">Uma aventura emocionante sobre Helena, uma menina cega que ensina seus amigos a verem o mundo com o coração.</p>
+                <div class="price-tag">R$ 19,90</div>
+                <div class="actions">
+                    <a href="#" class="btn-amazon">Comprar na Amazon (Kindle)</a>
+                    <a href="https://wa.me/5500000000000?text=Olá, quero comprar o PDF do Jardim Secreto" class="btn-direct">Comprar PDF (Pix/WhatsApp)</a>
+                </div>
+            </article>
+
+            <article class="book-card">
+                <div class="book-cover-placeholder">Capa do Livro 2</div>
+                <h3 class="book-title">As Asas de Lili</h3>
+                <p class="book-desc">Lili é uma fada que nasceu com uma asa só. Descubra como ela aprendeu a voar de um jeito único.</p>
+                <div class="price-tag">R$ 19,90</div>
+                <div class="actions">
+                    <a href="#" class="btn-amazon">Comprar na Amazon (Kindle)</a>
+                    <a href="#" class="btn-direct">Comprar PDF (Pix/WhatsApp)</a>
+                </div>
+            </article>
+
+            <article class="book-card">
+                <div class="book-cover-placeholder">Capa do Livro 3</div>
+                <h3 class="book-title">O Mundo Zumbido de Gael</h3>
+                <p class="book-desc">Gael tem muita energia e ideias brilhantes! Uma história divertida sobre TDAH e criatividade.</p>
+                <div class="price-tag">R$ 19,90</div>
+                <div class="actions">
+                    <a href="#" class="btn-amazon">Comprar na Amazon (Kindle)</a>
+                    <a href="#" class="btn-direct">Comprar PDF (Pix/WhatsApp)</a>
+                </div>
+            </article>
+
+            <article class="book-card">
+                <div class="book-cover-placeholder">Em Breve</div>
+                <h3 class="book-title">A Estrelinha Que falava com as Mãos</h3>
+                <p class="book-desc">O lançamento mais aguardado sobre a beleza da língua de sinais.</p>
+                <div class="price-tag">Em breve</div>
+                <div class="actions">
+                    <a href="#" class="btn-direct" style="background:#ccc; border:none; color:#555;">Lista de Espera</a>
+                </div>
+            </article>
+
+            </div>
+    </div>
+
+    <section style="background-color: #fff; padding: 4rem 1rem; text-align: center; margin-top: 3rem;">
+        <div class="container">
+            <h2 style="color: var(--accent-pink); margin-bottom: 1rem;">Por que ler livros inclusivos?</h2>
+            <p style="max-width: 700px; margin: 0 auto; color: #555;">
+                A leitura inclusiva desenvolve a empatia desde cedo. Nossos livros são ferramentas para pais e professores ensinarem que ser diferente é, na verdade, o que nos torna especiais.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Era Uma Vez Diferente. Todos os direitos reservados.</p>
+        <div class="footer-links" style="margin-top: 1rem;">
+            <a href="#">Instagram</a>
+            <a href="#">Fale Conosco</a>
+        </div>
+    </footer>
+
+</body>
+</html>
